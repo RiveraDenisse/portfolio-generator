@@ -36,6 +36,12 @@ const promptUser = () => {
             }
         },
         {
+            type: 'confirm',
+            name: 'confirmAbout',
+            message: 'Would you like to enter some information about yourself for an "About" section?',
+            default: true
+        },
+        {
             type: 'input',
             name: 'about',
             message: 'Provide some information about yourself:',
@@ -87,13 +93,6 @@ const promptProject = (portfolioData) => {
             name: 'languages',
             message: 'What did you build this project with? (Check all that apply)',
             choices:['JavaScript', 'HTML','CSS','ES6', 'jQuery', 'Bootstrap','Node'],
-            validate: languages => {
-                if (languages){
-                    return true;
-                }else {
-                    console.log('Please select languages used!');
-                }
-            }
         },
         {
             type: 'input',
@@ -132,5 +131,6 @@ const promptProject = (portfolioData) => {
 promptUser()
   .then(promptProject)
   .then(portfolioData => {
+      
     console.log(portfolioData);
   });
